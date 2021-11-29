@@ -196,12 +196,12 @@ class LoadModel {
 
     const loader = new THREE.CubeTextureLoader();
     const texture = loader.load([
-      './resources/posx.jpg',
-      './resources/negx.jpg',
-      './resources/posy.jpg',
-      './resources/negy.jpg',
-      './resources/posz.jpg',
-      './resources/negz.jpg',
+      './resources/bay_ft.jpg',
+      './resources/bay_bk.jpg',
+      './resources/bay_up.jpg',
+      './resources/bay_dn.jpg',
+      './resources/bay_rt.jpg',
+      './resources/bay_lf.jpg',
     ]);
     this._scene.background = texture;
 
@@ -215,7 +215,7 @@ class LoadModel {
 
   _LoadModel() {
     const loader = new GLTFLoader();
-    loader.load('./assets/obj.glb', (gltf) => {
+    loader.load('./assets/crane109.glb', (gltf) => {
 
       gltf.scene.traverse(c => {
         c.castShadow = true;
@@ -226,15 +226,15 @@ class LoadModel {
 
   _LoadModel2() {
   const loader = new GLTFLoader();
-  loader.load('./assets/Trees/scene.gltf', (gltf) => {
+  loader.load('./assets/grass.glb', (gltf) => {
     gltf.scene.traverse(c => {
       c.castShadow = true;
     });
 
     //set position and scale
     var mesh = gltf.scene;
-    mesh.position.set(30, 0, 0);
-    mesh.scale.set(.25, .25, .25);
+    mesh.position.set(0, 5, 50);
+    mesh.scale.set(0.00001, 0.00001, 0.00001);
 
     this._scene.add(gltf.scene);
   });
